@@ -1,0 +1,84 @@
+#' Analysis of split-split plot experiment(Analise de experimento em parcela subsubdividida)
+#'@description  This enables the analysis of split-split plot experiments. For quantitative
+#'factors, regression models are adjusted. For qualitative factors, multiple comparison
+#'tests are conducted (Esta possibilita a analise de experimentos em parcela subsubdividida.
+#'Para os fatores quantitativos são ajustados modelos de regressao. Para os fatores
+#'qualitativos sao feitos testes de comparacoes multiplas).
+#'@usage ssplot(data,design=2,quali=c(TRUE,TRUE,TRUE),sig=0.05,verbose=TRUE)
+#'@param data Matrix containing necessarily 5 columns, with the identification of the
+#'levels of factor A, factor B, factor C, Replications, and response variable,
+#'respectively (Matriz contendo obrigatoriamente nas 5  colunas a identificacao dos niveis do
+#'fator A, fator B, fator C, Repeticoes e variavel resposta, reespectivaemnte).
+#'
+#'@param design Indicates the statistical design (indica o delineamento estatistico).
+#' \itemize{ \item design=1  Completely randomized design (Delineamento inteiramente casualizado).
+#' \item design=2 Randomized complete block design (Delineamento em blocos casualizados).}
+#'@param quali Vector with three logical values (TRUE/FALSE). TRUE indicates that
+#' the respective factor is qualitative, performing the mean test. FALSE indicates
+#'  that the factor is quantitative, and regression analysis is performed (Vetor com tres valores logicos (TRUE/FALSE). TRUE indica que o
+#'  respectivo fator e qualitativo, realizando-se o teste de medias. FALSE
+#'  indica que o fator e quantitativo, sendo feita a analise de regressao).
+#'@param sig Value indicating the significance level (default = 0.05) (valor indicando
+#' o nivel de significancia (default = 0.05)).
+#'@param  verbose Logical value (TRUE/FALSE), TRUE displays the analysis results.
+#'(Valor logico (TRUE/FALSE), TRUE apresenta os resultados da analise).
+#'@return Returns the results of split-split plot experiments
+#'(Retorna os resultados de experimentos em parcelas subsubdivididas).
+#' @author Alcinei Mistico Azevedo, \email{alcineimistico@@hotmail.com}
+#'@references
+#'<https://www.youtube.com/playlist?list=PLvth1ZcREyK4wSzwg-IxvrzaNzSLLrXEB>
+#'
+#'  BANZATTO, D. A.; KRONKA, S. N. Experimentacao Agricola. 4 ed.
+#'  Jaboticabal: Funep. 2006. 237 p.
+#'
+#'  GOMES, F. P. Curso de Estatistica Experimental. 10a ed. Piracicaba:
+#'  ESALQ/USP. 1982. 430.
+#' @examples
+
+
+#' \donttest{
+#' ##Exemplo de experimento
+#'
+#' data(ex1)
+#'
+#'
+#' ###########################################################
+#' #######Analysis considering all qualitative factors #######
+#' ###########################################################
+#'
+#' #Analysis considering the Completely Randomized Design.
+#' #Analise considerando o Delineamento inteiramente casualizado
+#' ssplot(ex1,design=1,quali=c(TRUE,TRUE,TRUE))
+#'
+#' #Analysis considering the Randomized Complete Block Design
+#' #Analise considerando o Delineamento em blocos casualizados
+#' ssplot(ex1,design=2,quali=c(TRUE,TRUE,TRUE))
+#'
+#' ###########################################################
+#' #######Analysis considering two of the factors as quantitative. #######
+#' ###########################################################
+#'
+#'
+#' #' #Analysis considering the Completely Randomized Design.
+#' #Analise considerando o Delineamento inteiramente casualizado
+#' ssplot(ex1,design=1,quali=c(TRUE,FALSE,FALSE))
+#'
+#' #Analysis considering the Randomized Complete Block Design
+#' #Analise considerando o Delineamento em blocos casualizados
+#' ssplot(ex1,design=2,quali=c(TRUE,FALSE,FALSE))
+#'}
+#'@export
+
+#  D=ex1;design=2;quali=c(TRUE,TRUE,TRUE);sig=0.05;verbose=TRUE
+
+
+#'@importFrom stats anova lm na.action na.omit pchisq pf pt ptukey qt qtukey
+#'@importFrom utils combn read.table
+ssplot=function(data,design=2,quali=c(TRUE,TRUE,TRUE),sig=0.05,verbose=TRUE){
+  if(design==1){
+    ssplot.DIC(D=data,quali=quali,sig=sig,verbose=verbose)
+  }
+if(design==2){
+  ssplot.DBC(D=data,quali=quali,sig=sig,verbose=verbose)
+  }
+}

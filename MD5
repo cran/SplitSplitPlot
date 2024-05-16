@@ -1,0 +1,15 @@
+4b9d1fdff67368e7b9a4cca8e8adb61d *DESCRIPTION
+12d4808ab39341d561960017962019c0 *NAMESPACE
+1e56e298cdc212aff634ff92152b26f1 *NEWS.md
+0670c657b42466509a1007fdda69e6ae *R/ComparacaoMedias.R
+4ab0373aab191cbed8842ceb2a811609 *R/Funcoes.R
+be96675d7eb87b337056a08a38c6ceef *R/RegressaoPolinomial.R
+bfdebcd4a2ac03f53aceddbb06e12d0f *R/SplitSplitPlot-package.R
+2104bbbd300c16e01b20c04cc096e3ae *R/ex1.R
+ccd4a53d031813277863d26b6ca5c398 *R/ssplot.DBC.R
+17a55596fbebad25ae26faf085d8d2fb *R/ssplot.DIC.R
+bf04d7d89e7bafdfe22707912e637898 *R/ssplot.R
+c2ccfa6470724fde61b8677929c096f6 *data/ex1.txt
+9258cb5e267e0bb8293470d72c8ab8d1 *man/SplitSplitPlot-package.Rd
+5ac8e672a4d1b68861c8494f8eb31161 *man/ex1.Rd
+84aad08b24bfeb9aa07563b3ec206c51 *man/ssplot.Rd
